@@ -30,9 +30,11 @@
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target" id="ftco-navbar">
 	    <div class="container">
 	      <a class="navbar-brand" href="index.html">Don Laude</a>
-	      <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-	        <span class="oi oi-menu"></span> Menu
-	      </button>
+	      <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" 
+          type="button" data-toggle="collapse" data-target="#ftco-nav">
+          <span class="menu-icon">☰</span>
+          <span class="close-icon">✕</span>
+        </button>
 
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav nav ml-auto">
@@ -56,13 +58,12 @@
     <div class="row no-gutters align-items-center justify-content-center js-fullheight">
       <div class="col-md-10 col-lg-8 text-center ftco-animate">
         <div class="text hero-content">
-          <span class="subheading">Hello!</span>
           <h1 class="mb-4 mt-3">I'm <span>Don Laude Aspecto</span></h1>
           <h2 class="mb-4">Computer Science Graduate</h2>
           <p class="mb-4 hero-description">
             Passionate about building clean, functional, and user-friendly digital experiences.
           </p>
-          <p>
+          <p class="hero-cta">
             <a href="#contact-section" class="btn btn-primary py-3 px-4">Hire Me</a>
             <a href="#projects-section" class="btn btn-white btn-outline-white py-3 px-4">My Works</a>
           </p>
@@ -125,7 +126,7 @@
       <div class="col-md-6 text-center ftco-animate">
         <!-- Replace Button with Image -->
         <a href="pdf/Resume-Aspecto,DonLaude.pdf" target="_blank">
-          <img src="images/resume.png" alt="My Resume" class="img-fluid">
+          <img src="images/resume.png" alt="My Resume" class="img-fluid resume-preview">
         </a>
       </div>
     </div>
@@ -428,10 +429,9 @@
         </button>
       </div>
       <div class="modal-body">
-        <div class="embed-responsive embed-responsive-16by9 mb-4">
-          <iframe class="embed-responsive-item"
-            src="https://www.youtube.com/embed/uQxrCn_ammw"
-            allowfullscreen></iframe>
+        <div class="youtube-player mb-4" data-video-id="uQxrCn_ammw">
+          <img src="https://img.youtube.com/vi/uQxrCn_ammw/hqdefault.jpg" alt="KulTuro Video">
+          <button class="youtube-play-btn" type="button">▶</button>
         </div>
         <p class="project-tech">Python, JavaScript, CSS, HTML, MongoDB</p>
         <p>Chatbot-based educational application that uses a large language model (LLM) for grammar error detection and correction in Tagalog. Provides real-time feedback and explanations to help learners improve language proficiency.</p>
@@ -452,10 +452,9 @@
         </button>
       </div>
       <div class="modal-body">
-        <div class="embed-responsive embed-responsive-16by9 mb-4">
-          <iframe class="embed-responsive-item"
-            src="https://www.youtube.com/embed/WhOTZ8fMRWI"
-            allowfullscreen></iframe>
+        <div class="youtube-player mb-4" data-video-id="WhOTZ8fMRWI">
+          <img src="https://img.youtube.com/vi/WhOTZ8fMRWI/hqdefault.jpg" alt="Padua Realty Video">
+          <button class="youtube-play-btn" type="button">▶</button>
         </div>
         <p class="project-tech">Handlebars, JavaScript, Bootstrap, CSS</p>
         <p>A real estate website that lets users browse property listings, view details, and connect with agents. It includes an admin dashboard for managing properties, agents, and customer inquiries.</p>
@@ -535,10 +534,9 @@
         </button>
       </div>
       <div class="modal-body">
-        <div class="embed-responsive embed-responsive-16by9 mb-4">
-          <iframe class="embed-responsive-item"
-            src="https://www.youtube.com/embed/dfmARbpNkdM"
-            allowfullscreen></iframe>
+        <div class="youtube-player mb-4" data-video-id="dfmARbpNkdM">
+          <img src="https://img.youtube.com/vi/dfmARbpNkdM/hqdefault.jpg" alt="EduPulse Video">
+          <button class="youtube-play-btn" type="button">▶</button>
         </div>
         <p class="project-tech">JavaScript, SCSS, HTML, CSS</p>
         <p>A web-based platform for managing student enrollment, authentication, course information, and grade tracking. It features separate microservices for user authentication, course management, and grading, with a React frontend providing the user interface.</p>
@@ -560,10 +558,9 @@
         </button>
       </div>
       <div class="modal-body">
-        <div class="embed-responsive embed-responsive-16by9 mb-4">
-          <iframe class="embed-responsive-item"
-            src="https://www.youtube.com/embed/JAzJVleBbQ0"
-            allowfullscreen></iframe>
+        <div class="youtube-player mb-4" data-video-id="JAzJVleBbQ0">
+          <img src="https://img.youtube.com/vi/JAzJVleBbQ0/hqdefault.jpg" alt="Lakad Video">
+          <button class="youtube-play-btn" type="button">▶</button>
         </div>
         <p class="project-tech">Figma</p>
         <p>A mobile application prototype with safe route pathfinding, community hazard reporting, voice alerts, and SOS features to enhance nighttime commuter safety.</p>
@@ -688,6 +685,29 @@
   <script src="js/scrollax.min.js"></script>
   
   <script src="js/main.js"></script>
-    
+  <script>
+    $('.youtube-player').on('click', function () {
+      var videoId = $(this).data('video-id');
+
+      $(this).html(`
+        <iframe
+          src="https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&playsinline=1"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      `);
+    });
+
+    $('.modal').on('hidden.bs.modal', function () {
+      $(this).find('.youtube-player').each(function () {
+        var videoId = $(this).data('video-id');
+
+        $(this).html(`
+          <img src="https://img.youtube.com/vi/${videoId}/hqdefault.jpg" alt="Project Video">
+          <button class="youtube-play-btn" type="button">▶</button>
+        `);
+      });
+    });
+  </script>
   </body>
 </html>

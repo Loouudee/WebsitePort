@@ -10344,3 +10344,258 @@ body {
   max-width: 900px;  /* Set a maximum width if needed */
   height: auto;  /* Maintain aspect ratio */
 }
+
+/* ===== MOBILE FIXES ===== */
+body {
+  overflow-x: hidden;
+}
+
+.hero-cta {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.hero-cta .btn {
+  margin: 0;
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+
+  .hero-cta {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-cta .btn {
+    width: 100%;
+  }
+
+  .hero-custom {
+    text-align: center;
+    padding: 80px 0 40px;
+  }
+
+  .hero-custom h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero-custom h2 {
+    font-size: 1.3rem;
+  }
+
+  .hero-description {
+    font-size: 1rem;
+  }
+
+  /* About section fix */
+  .ftco-about ul.about-info li {
+    display: block !important;
+    margin-bottom: 12px;
+  }
+
+  .ftco-about ul.about-info li span {
+    display: block;
+    width: 100%;
+  }
+
+  /* Projects spacing */
+  .project-preview {
+    margin-bottom: 20px;
+  }
+
+  /* Modal fix */
+  .modal-dialog {
+    margin: 10px;
+  }
+
+  .modal-body {
+    font-size: 14px;
+  }
+
+  /* Contact icons */
+  .circle {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+/* ===== CUSTOM MOBILE + YOUTUBE MODAL FIXES ===== */
+
+body {
+  overflow-x: hidden;
+}
+
+/* Hero buttons */
+.hero-cta {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.hero-cta .btn {
+  margin: 0;
+}
+
+/* YouTube videos inside modals */
+.embed-responsive {
+  position: relative;
+  z-index: 1;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.embed-responsive iframe {
+  pointer-events: auto;
+  z-index: 2;
+}
+
+/* Prevent project card overlay from blocking mobile taps */
+.project-overlay {
+  pointer-events: none;
+}
+
+/* Modal scrolling fix */
+.modal {
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Mobile fixes */
+@media (max-width: 767px) {
+  .hero-cta {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-cta .btn {
+    width: 100%;
+  }
+
+  .hero-custom {
+    text-align: center;
+    padding: 80px 0 40px;
+  }
+
+  .hero-custom h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero-custom h2 {
+    font-size: 1.3rem;
+  }
+
+  .hero-description {
+    font-size: 1rem;
+  }
+
+  .ftco-about ul.about-info li {
+    display: block !important;
+    margin-bottom: 12px;
+  }
+
+  .ftco-about ul.about-info li span {
+    display: block;
+    width: 100%;
+  }
+
+  .project-preview {
+    margin-bottom: 20px;
+  }
+
+  .modal-dialog {
+    margin: 10px;
+  }
+
+  .modal-body {
+    padding: 16px;
+    font-size: 14px;
+  }
+
+  .embed-responsive {
+    margin-bottom: 12px;
+  }
+
+  .circle {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+/* ===== CONTACT HORIZONTAL (MOBILE) ===== */
+@media (max-width: 767px) {
+
+  .contact-section .contact-info {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center !important;
+    align-items: center !important;
+    flex-wrap: wrap; /* prevents overflow */
+    gap: 18px;
+    margin-top: 30px;
+  }
+
+  .contact-section .contact-info > div {
+    width: auto !important;
+    padding: 0 !important;
+    display: flex;
+    justify-content: center;
+  }
+
+  .circle-container {
+    padding: 0 !important;
+  }
+
+  .circle {
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+  }
+
+  .circle i {
+    font-size: 24px;
+  }
+
+  /* Hover / tap animation */
+  .circle:hover {
+    transform: translateY(-5px) scale(1.05);
+    background: #f96d00;
+  }
+
+  .circle:hover i {
+    color: #fff;
+  }
+}
+
+/* Navbar toggle icons */
+.navbar-toggler {
+  border: none;
+  outline: none;
+  position: relative;
+}
+
+.menu-icon,
+.close-icon {
+  font-size: 22px;
+  color: #fff;
+  display: inline-block;
+}
+
+/* Hide X by default */
+.close-icon {
+  display: none;
+}
+
+/* When menu is open */
+.navbar-toggler.active .menu-icon {
+  display: none;
+}
+
+.navbar-toggler.active .close-icon {
+  display: inline-block;
+}
